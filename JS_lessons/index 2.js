@@ -1,9 +1,18 @@
-let user = {
-    name: "Иван",
-    age: 30,
-};
+function Calculator(a, b) {
+    this.read = function() {
+        this.a = +prompt("a?", "");
+        this.b = +prompt("b?", "");
+    };
+    this.sum = function() {
+        return this.a + this.b;
+    };
+    this.mul = function() {
+        return this.a * this.b;
+    };
+}
 
-let clone = Object.assign({}, user);
+let calculator = new Calculator();
 
-console.log(clone);
-console.log(user);
+calculator.read();
+alert("Sum=" + calculator.sum());
+alert("Mul=" + calculator.mul());
