@@ -1,10 +1,61 @@
-// function getSecondsToday() {
-//     let date = new Date();
-//     date = date.setHours(0, 0, 0, 0);
-//     return((Date.now() - date) / 1000);
+let room = {
+  number: 23,
+};
+
+let meetup = {
+  title: "Совещание",
+  occupiedBy: [{ name: "Иванов" }, { name: "Петров" }],
+  place: room,
+};
+
+// цикличные ссылки
+room.occupiedBy = meetup;
+meetup.self = meetup;
+
+alert(
+  JSON.stringify(meetup, function replacer(key, value) {
+    return key != "" && value == meetup ? undefined : value;
+  })
+);
+
+// let user = {
+//   name: "Василий Иванович",
+//   age: 35,
+// };
+
+// let json = JSON.stringify(user);
+// alert(json);
+
+// let usernew = JSON.parse(json);
+// alert(usernew.name);
+
+// let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+
+// let meetup = JSON.parse(str, function (key, value) {
+//   if (key == "date") return new Date(value);
+//   return value;
+// });
+
+//alert(meetup.date.getDate()); // 30 - теперь работает!
+
+// function getSecondsToday1() {
+//   let now = new Date();
+
+//   // создаём объект с текущими днём/месяцем/годом
+//   let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+//   let diff = now - today; // разница в миллисекундах
+//   return Math.round(diff / 1000); // получаем секунды
 // }
 
-alert(getSecondsToday());
+// function getSecondsToday() {
+//   let date = new Date();
+//   date = date.setHours(0, 0, 0, 0);
+//   return Math.round((Date.now() - date) / 1000);
+// }
+
+// alert(getSecondsToday());
+// alert(getSecondsToday1());
 
 // function getDateAgo(dat, days) {
 //     alert(dat);
