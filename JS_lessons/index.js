@@ -1,22 +1,130 @@
-let room = {
-  number: 23,
+let list = {
+    value: 1,
+    next: {
+        value: 2,
+        next: {
+            value: 3,
+            next: {
+                value: 4,
+                next: null,
+            },
+        },
+    },
 };
 
-let meetup = {
-  title: "Совещание",
-  occupiedBy: [{ name: "Иванов" }, { name: "Петров" }],
-  place: room,
-};
+function printReverseList(list) {
+    if (list.next) {
+        printReverseList(list.next);
+    }
 
-// цикличные ссылки
-room.occupiedBy = meetup;
-meetup.self = meetup;
+    alert(list.value);
+}
 
-alert(
-  JSON.stringify(meetup, function replacer(key, value) {
-    return key != "" && value == meetup ? undefined : value;
-  })
-);
+printReverseList(list);
+
+// function factorial(n) {
+//     if (n > 1) {
+//         return n * factorial(n - 1);
+//     } else {
+//         return n;
+//     }
+// }
+
+// alert(factorial(4));
+
+// function sumTo(n) {
+//     return ((1 + n) / 2) * n;
+// }
+
+// alert(sumTo(5));
+
+// function sumTo(n) {
+//     if (n == 1) {
+//         return n;
+//     } else {
+//         return n + sumTo(n - 1);
+//     }
+// }
+
+// alert(sumTo(10000));
+
+// function sumTo(n) {
+//     let sum = 0;
+//     for (let j = 1; j <= n; j++) {
+//         sum = sum + j;
+//     }
+//     return sum;
+// }
+
+// alert(sumTo(5));
+
+// let list = { value: 1 };
+// list.next = { value: 2 };
+// list.next.next = { value: 3 };
+// list.next.next.next = { value: 4 };
+
+// alert(JSON.stringify(list));
+
+// let secondList = list.next.next;
+// list.next.next = null;
+
+// alert(JSON.stringify(list));
+// alert(JSON.stringify(secondList));
+
+// let company = {
+//     // тот же самый объект, сжатый для краткости
+//     sales: [
+//         { name: "John", salary: 1000 },
+//         { name: "Alice", salary: 600 },
+//     ],
+//     development: {
+//         sites: [
+//             { name: "Peter", salary: 2000 },
+//             { name: "Alex", salary: 1800 },
+//         ],
+//         internals: [{ name: "Jack", salary: 1300 }],
+//     },
+// };
+
+// // Функция для подсчёта суммы зарплат
+// function sumSalaries(department) {
+//     if (Array.isArray(department)) {
+//         // случай (1)
+//         return department.reduce((prev, current) => prev + current.salary, 0); // сумма элементов массива
+//     } else {
+//         // случай (2)
+//         let sum = 0;
+//         //alert(JSON.stringify(Object.values(department)));
+//         for (let subdep of Object.values(department)) {
+//             alert(JSON.stringify(Object.values(department)));
+//             sum += sumSalaries(subdep); // рекурсивно вызывается для подотделов, суммируя результаты
+//             alert(sum);
+//         }
+//         return sum;
+//     }
+// }
+
+// alert(sumSalaries(company)); // 6700
+
+// let room = {
+//   number: 23,
+// };
+
+// let meetup = {
+//   title: "Совещание",
+//   occupiedBy: [{ name: "Иванов" }, { name: "Петров" }],
+//   place: room,
+// };
+
+// // цикличные ссылки
+// room.occupiedBy = meetup;
+// meetup.self = meetup;
+
+// alert(
+//   JSON.stringify(meetup, function replacer(key, value) {
+//     return key != "" && value == meetup ? undefined : value;
+//   })
+// );
 
 // let user = {
 //   name: "Василий Иванович",
