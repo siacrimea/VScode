@@ -1,26 +1,42 @@
-let list = {
-    value: 1,
-    next: {
-        value: 2,
-        next: {
-            value: 3,
-            next: {
-                value: 4,
-                next: null,
-            },
-        },
-    },
-};
+function makeWorker() {
+    let name = "Pete";
 
-function printReverseList(list) {
-    if (list.next) {
-        printReverseList(list.next);
-    }
-
-    alert(list.value);
+    return function() {
+        alert(name);
+    };
 }
 
-printReverseList(list);
+let name = "John";
+
+// create a function
+let work = makeWorker();
+
+// call it
+work();
+
+// let list = {
+//     value: 1,
+//     next: {
+//         value: 2,
+//         next: {
+//             value: 3,
+//             next: {
+//                 value: 4,
+//                 next: null,
+//             },
+//         },
+//     },
+// };
+
+// function printReverseList(list) {
+//     if (list.next) {
+//         printReverseList(list.next);
+//     }
+
+//     alert(list.value);
+// }
+
+// printReverseList(list);
 
 // function factorial(n) {
 //     if (n > 1) {
