@@ -1,18 +1,74 @@
-function makeWorker() {
-    let name = "Pete";
+function makeArmy() {
+    let shooters = [];
 
-    return function() {
-        alert(name);
-    };
+    for (let i = 0; i < 10; i++) {
+        let shooter = function() {
+            alert(i);
+        };
+        shooters.push(shooter);
+        alert(shooters);
+    }
+
+    return shooters;
 }
 
-let name = "John";
+let army = makeArmy();
 
-// create a function
-let work = makeWorker();
+army[0](); // у 0-го стрелка будет номер 10
+army[5]();
 
-// call it
-work();
+// let users = [
+//     { name: "John", age: 20, surname: "Johnson" },
+//     { name: "Pete", age: 18, surname: "Peterson" },
+//     { name: "Ann", age: 19, surname: "Hathaway" },
+// ];
+
+// function byField(nam) {
+//    return (a, b) => (a[nam] > b[nam] ? 1 : -1);
+// }
+
+// alert(JSON.stringify(users.sort(byField("name"))));
+// alert(JSON.stringify(users.sort(byField("age"))));
+
+// по имени (Ann, John, Pete)
+//alert(JSON.stringify(users.sort((a, b) => (a.name > b.name ? 1 : -1))));
+
+// по возрасту (Pete, Ann, John)
+// alert(JSON.stringify(users.sort((a, b) => (a.age > b.age ? 1 : -1))));
+
+// function inBetween(a, b) {
+//     return function(x) {
+//         return x >= a && x <= b;
+//     };
+// }
+
+// function inArray(m) {
+//     console.log(m);
+//     return function(n) {
+//         console.log(n);
+//         return m.includes(n);
+//     };
+// }
+
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+
+// alert(arr.filter(inBetween(3, 6)));
+
+// alert(arr.filter(inArray([1, 2, 10])));
+
+// function makeCounter() {
+//     let count = 0;
+
+//     return function() {
+//         return count++; // есть доступ к внешней переменной "count"
+//     };
+// }
+
+// let counter = makeCounter();
+
+// alert(counter()); // 0
+// alert(counter()); // 1
+// alert(counter()); // 2
 
 // let list = {
 //     value: 1,
