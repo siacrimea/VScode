@@ -1,21 +1,51 @@
-function makeArmy() {
-    let shooters = [];
+let group = {
+    title: "Our Group",
+    students: ["John", "Pete", "Alice"],
 
-    for (let i = 0; i < 10; i++) {
-        let shooter = function() {
-            alert(i);
-        };
-        shooters.push(shooter);
-        alert(shooters);
-    }
+    showList() {
+        this.students.forEach((student) => alert(this.title + ": " + student));
+    },
+};
 
-    return shooters;
-}
+group.showList();
 
-let army = makeArmy();
+// let start = Date.now();
+// let times = [];
 
-army[0](); // у 0-го стрелка будет номер 10
-army[5]();
+// setTimeout(function run() {
+//     times.push(Date.now() - start); // запоминаем задержку от предыдущего вызова
+
+//     if (start + 100 < Date.now()) alert(times);
+//     // показываем задержку через 100 мс
+//     else setTimeout(run); // если нужно ещё запланировать
+// });
+
+//let timerId = setInterval(() => alert("tick"), 2000);
+
+// let timerId = setTimeout(function tick() {
+//     alert("tick");
+//     timerId = setTimeout(tick, 2000); // (*)
+// }, 2000);
+
+// function makeArmy() {
+//     let shooters = [];
+
+//     for (let i = 0; i < 10; i++) {
+//         let shooter = function() {
+//             alert(i);
+//         };
+//         shooters.push(shooter);
+//         //alert(shooters);
+//     }
+
+//     return shooters;
+// }
+
+// let army = makeArmy();
+
+// //army[0](); // у 0-го стрелка будет номер 10
+// army[5]();
+// alert(army);
 
 // let users = [
 //     { name: "John", age: 20, surname: "Johnson" },
