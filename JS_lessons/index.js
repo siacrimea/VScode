@@ -1,13 +1,99 @@
-let group = {
-    title: "Our Group",
-    students: ["John", "Pete", "Alice"],
+function loadScript(src, callback) {
+    let script = document.createElement("script");
+    script.src = src;
+    script.onload = () => callback(script);
+    document.head.append(script);
+}
 
-    showList() {
-        this.students.forEach((student) => alert(this.title + ": " + student));
-    },
-};
+loadScript("index 2.js", (script) => {
+    alert(`Здорово, скрипт ${script.src} загрузился`);
+    alert(_); // функция, объявленная в загруженном скрипте
+});
+// function f() {}
 
-group.showList();
+// alert(f.__proto__);
+// alert(f.__proto__.__proto__);
+//alert(f.__proto__ == Function.prototype);
+//alert(f.__proto__.__proto__ == Object.prototype);
+
+// let hamster = {
+//     stomach: [],
+
+//     eat(food) {
+//         this.stomach.push(food);
+//     },
+// };
+
+// let speedy = {
+//     stomach: [],
+//     __proto__: hamster,
+// };
+
+// let lazy = {
+//     stomach: [],
+//     __proto__: hamster,
+// };
+
+// // Этот хомяк нашёл еду
+// speedy.eat("apple");
+// alert(speedy.stomach); // apple
+
+// // У этого хомяка тоже есть еда. Почему? Исправьте
+// alert(lazy.stomach);
+
+// // методы animal
+// let animal = {
+//     walk() {
+//         if (!this.isSleeping) {
+//             alert(`I walk`);
+//         }
+//     },
+//     sleep() {
+//         this.isSleeping = true;
+//     },
+// };
+
+// let rabbit = {
+//     name: "White Rabbit",
+//     __proto__: animal,
+// };
+
+// // модифицирует rabbit.isSleeping
+// rabbit.sleep();
+// animal.sleep();
+
+// alert(rabbit.isSleeping); // true
+// alert(animal.isSleeping); // undefined (нет такого свойства в прототипе)
+
+// let user = {
+//     get name() {
+//         return this._name;
+//     },
+
+//     set name(value) {
+//         if (value.length < 4) {
+//             alert("Имя слишком короткое, должно быть более 4 символов");
+//             return;
+//         }
+//         this._name = value;
+//     },
+// };
+
+// //user.name = "Pete";
+// alert(user.name); // Pete
+
+//user.name = ""; // Имя слишком короткое...
+
+// let group = {
+//     title: "Our Group",
+//     students: ["John", "Pete", "Alice"],
+
+//     showList() {
+//         this.students.forEach((student) => alert(this.title + ": " + student));
+//     },
+// };
+
+// group.showList();
 
 // let start = Date.now();
 // let times = [];
