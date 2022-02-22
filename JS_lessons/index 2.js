@@ -4,7 +4,7 @@ function Calculator(a, b) {
         this.b = +prompt("b?", "");
     };
     this.sum = function() {
-        return this.a + this.b;
+        return this.a + this.b; //123
     };
     this.mul = function() {
         return this.a * this.b;
@@ -15,4 +15,5 @@ let calculator = new Calculator();
 
 calculator.read();
 alert("Sum=" + calculator.sum());
+
 alert("Mul=" + calculator.mul());
